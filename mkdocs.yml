@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: Copyright DB Netz AG and contributors
+# SPDX-License-Identifier: Apache-2.0
+
+site_name: MBSE Documentation
+theme:
+  name: material
+nav:
+  - Introduction: index.md
+
+repo_url: https://github.com/DSD-DBS/capella-collab-manager-docs
+edit_uri: edit/main/docs
+
+markdown_extensions:
+  - meta
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - abbr
+  - pymdownx.snippets
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra:
+  generator: false
+
+copyright: Copyright &copy; 2022 DB Netz AG
