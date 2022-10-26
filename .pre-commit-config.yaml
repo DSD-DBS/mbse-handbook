@@ -35,7 +35,7 @@ repos:
         args:
           - --detect-license-in-X-top-lines=15
           - --license-filepath
-          - LICENSES/.license_header.txt
+          - LICENSES/.license_header_apache.txt
           - --comment-style
           - '#'
       - id: insert-license
@@ -45,7 +45,7 @@ repos:
         args:
           - --detect-license-in-X-top-lines=15
           - --license-filepath
-          - LICENSES/.license_header.txt
+          - LICENSES/.license_header_apache.txt
           - --comment-style
           - '<!--| ~| -->'
       - id: insert-license
@@ -55,7 +55,7 @@ repos:
         args:
           - --detect-license-in-X-top-lines=15
           - --license-filepath
-          - LICENSES/.license_header.txt
+          - LICENSES/.license_header_apache.txt
           - --comment-style
           - '/*| *| */'
       - id: insert-license
@@ -65,7 +65,7 @@ repos:
         args:
           - --detect-license-in-X-top-lines=15
           - --license-filepath
-          - LICENSES/.license_header.txt
+          - LICENSES/.license_header_apache.txt
           - --comment-style
           - '..|  |'
   - repo: https://github.com/fsfe/reuse-tool
