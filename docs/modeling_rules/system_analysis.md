@@ -76,31 +76,36 @@ For all exchanges between **core** system functions (functions that use the cont
     - Consumed by function type: Control state x (instance z)
     - For functional exchanges between two instances of the same function, the functional exchange should go through a duplicate function (Name of the duplicate function shall be Duplicated instance of function 'original function name').
 
-Example (classical light signalling):
-![Example image](images/example_123.png)
+    ![Example image](images/example_123.png)
 
-control aspect of light signal BER003 (Hauptsignal/Main signal)	required aspect of signal BER001	control aspect of light signal BER001 (Vorsignal/Distant signal)
-Plant external required input state
-Produced by function type: Control
-Consumed by function type: Actuate or Indicate
-Plant external actual input state
-Produced by function type: Actuate
-Consumed by function type: Plant
-Plant actual output state
-Produced by function type: Plant
-Consumed by function type: Sense
-Sensed output state
-Produced by function type: Sense
-Consumed by function type: Observe
-Estimated internal state (abstraction level equal to abstraction used by control)
-Produced by function type: Observe
-Consumed by function type: Control
-Estimated internal state (abstraction level less than abstraction used by control OR used by observe function for a different internal state)
-Produced by function type: Observe
-Consumed by function type: Observe (different instance)
-Estimated internal state (for indication to a human user)
-Produced by function type: Observe
-Consumed by function type: Indicate
-Human perceptable state
-Produced by function type: Indicate
-Consumed by function type: Control or Observe (allocated to human actor)
+    Example (classical light signalling):
+
+    | Source | Exchange | Sink |
+    |--------|----------|------|
+    |control aspect of light signal BER003 (Hauptsignal/Main signal) | required aspect of signal BER001 | control aspect of light signal BER001 (Vorsignal/Distant signal)|
+
+
+1. Plant external required input state
+    - Produced by function type: Control
+    - Consumed by function type: Actuate or Indicate
+1. Plant external actual input state
+    - Produced by function type: Actuate
+    - Consumed by function type: Plant
+1.  Plant actual output state
+    - Produced by function type: Plant
+    - Consumed by function type: Sense
+1. Sensed output state
+    - Produced by function type: Sense
+    - Consumed by function type: Observe
+1. Estimated internal state (abstraction level equal to abstraction used by control)
+    - Produced by function type: Observe
+    - Consumed by function type: Control
+1. Estimated internal state (abstraction level less than abstraction used by control OR used by observe function for a different internal state)
+    - Produced by function type: Observe
+    - Consumed by function type: Observe (different instance)
+1. Estimated internal state (for indication to a human user)
+    - Produced by function type: Observe
+    - Consumed by function type: Indicate
+1. Human perceptable state
+    - Produced by function type: Indicate
+    - Consumed by function type: Control or Observe (allocated to human actor)
