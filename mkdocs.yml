@@ -6,6 +6,8 @@ theme:
   name: material
 nav:
   - Introduction: index.md
+  - Modeling Rules:
+    - System Analysis: modeling_rules/system_analysis.md
   - Demo: demo.md
 
 repo_url: https://github.com/DSD-DBS/capella-collab-manager-docs
