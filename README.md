@@ -39,6 +39,9 @@ We'd love to see your bug reports and improvement suggestions! Please take a loo
 This project is compliant with the REUSE Specification Version 3.0.
 
 Copyright DB Netz AG
+
 Text and graphical contents licensed under CC-BY-SA-3.0-DE License (see full text here: https://creativecommons.org/licenses/by-sa/3.0/de/legalcode)
+
 Code is licensed under Apache 2.0 (see full text in LICENSES/Apache-2.0.txt)
+
 Dot-files are licensed under CC0-1.0 (see full text in LICENSES/CC0-1.0.txt)
