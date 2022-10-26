@@ -44,7 +44,7 @@ repos:
         args:
           - --detect-license-in-X-top-lines=15
           - --license-filepath
-          - LICENSES/.license_header_apache.txt
+          - LICENSES/.license_header_ccbysa3.txt
           - --comment-style
           - '<!--| ~| -->'
       - id: insert-license
@@ -64,7 +64,7 @@ repos:
         args:
           - --detect-license-in-X-top-lines=15
           - --license-filepath
-          - LICENSES/.license_header_apache.txt
+          - LICENSES/.license_header_ccbysa3.txt
           - --comment-style
           - '..|  |'
   - repo: https://github.com/fsfe/reuse-tool
