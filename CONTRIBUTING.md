@@ -14,7 +14,25 @@ If you have questions, ideas or want to report a bug, feel free to [open an
 issue](/../../issues). Or go ahead and [open a pull request](/../../pulls) to contribute
 code.
 
-## Getting started
+## Setting up development environment
+
+if you can use docker - use docker: TO DO
+
+otherwise see below for manual install step
+
+To get faster into development process we recommend the following setup
+
+### Install python
+
+TO DO
+
+### Install vscode & extensions
+
+TO DO
+
+### Install mkdocs
+
+TO DO
 
 ### pre-commit
 

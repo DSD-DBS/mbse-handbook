@@ -19,11 +19,11 @@ Improvement suggestions may be contributed by reporting an issue or opening a di
 
 It is very difficult to operate or develop complex systems without MBSE. 
 
-Implementation of MBSE itself within an organization can also be a difficut journey. 
+Implementation of MBSE itself within an organization can also be a difficult journey. 
 
 Part of that journey is to explain to the organization how exactly can it be applied to a task at hand to get the expected results.
 
-Through our collaboration projects we see that many other organizations are on the same journey and trying to answer the same questions and that doing it together may save us time and effort while adding transparency / demystifying the process and reaoning behind the modeling methods and rules.
+Through our collaboration projects we see that many other organizations are on the same journey and trying to answer the same questions and that doing it together may save us time and effort while adding transparency / demystifying the process and reasoning behind the modeling methods and rules.
 
 
 ## Getting started

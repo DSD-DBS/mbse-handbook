@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright DB Netz AG and contributors
 # SPDX-License-Identifier: Apache-2.0
 
-site_name: MBSE Documentation
+site_name: MBSE Handbook
 theme:
   name: material
 nav:
