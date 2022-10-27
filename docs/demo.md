@@ -50,13 +50,13 @@ Example footnote reference[^1]
 In order to get MkDocs to create anchors for all headings the following
 configuration is needed:
 
-``` md title="mkdocs.yml"
+``` yaml title="mkdocs.yml"
 markdown_extensions:
   - toc:
-      permalink: "🔗"
+      permalink: "🔗" # (1)
 ```
 
-The permalink symbol is free to choose.
+1.  The permalink symbol is free to choose.
 
 ### Link to heading from same page
 
@@ -77,7 +77,7 @@ From:
 See [SA-001](/modeling_rules/system_analysis#sa-001) for language rules.
 ```
 
-Using a relative link to the markdown file where your heading is.
+using a relative link to the markdown file where your heading is.
 
 ## Image
 
