@@ -1,3 +1,8 @@
+<!--
+ ~ SPDX-FileCopyrightText: Copyright DB Netz AG and contributors
+ ~ SPDX-License-Identifier: Apache-2.0
+ -->
+
 # Modeling Rules for System Analysis
 
 ## Overall
@@ -7,7 +12,7 @@ In order to ensure consistency within the project, British English is to be used
 
 Refer to the [Cambridge Dictionary](https://dictionary.cambridge.org/) for further information.
 
-### SA-002	
+### SA-002
 Images and/or diagrams that are to be used in the descriptions of Capella model elements shall be created and maintained.
 
 ### SA-003
@@ -42,7 +47,7 @@ If some capabilities have a generalisation link, we can add a specific number to
 !!! info
 
     capabilities can be grouped by a mission in the model if needed
-    
+
 
 Examples:
 
@@ -58,8 +63,8 @@ Examples:
 
 For all exchanges between **core** system functions (functions that use the control pattern), the following exchange types are permitted; no other exchanges are permitted.
 
-1. **Abstract required state** (non-reflexive)(WHERE an abstract required state is used as a parameter to another function) 
-   
+1. **Abstract required state** (non-reflexive)(WHERE an abstract required state is used as a parameter to another function)
+
     - Produced by function type: Control OR External input to system
     - Consumed by function type: Control (different type) or Indicate.
 
