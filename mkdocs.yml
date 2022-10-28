@@ -4,14 +4,28 @@
 site_name: MBSE Handbook
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - content.code.annotate
+    - content.tooltips
+
 nav:
   - Introduction: index.md
   - Modeling Rules:
-    - System Analysis: modeling_rules/system_analysis.md
+      - System Analysis: modeling_rules/system_analysis.md
   - Demo: demo.md
 
 repo_url: https://github.com/DSD-DBS/capella-collab-manager-docs
 edit_uri: edit/main/docs
+
+plugins:
+  - search
+  - autorefs
 
 markdown_extensions:
   - meta
@@ -19,9 +33,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
-          - name: mermaid
-            class: mermaid
-            format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - abbr
   - pymdownx.snippets
   - attr_list
@@ -32,6 +46,8 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - footnotes
+  - toc:
+      permalink: "🔗"
 
 extra:
   generator: false
