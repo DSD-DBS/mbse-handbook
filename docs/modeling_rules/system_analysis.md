@@ -1,4 +1,4 @@
-# Modeling Rules for System Analysis
+# Modeling rules for system analysis
 
 ## Overall
 
@@ -18,7 +18,7 @@ E.g. if a certain description refers to a defined model element, the name of the
 Exception: model elements defined as abstract concepts or terms, which serve solely as a form of documenting information external to the project, shall be excluded from this rule.
 
 ## Elements
-### System Capability
+### System capability
 
 #### SC-106 - Naming convention
 
@@ -52,7 +52,7 @@ Examples:
 - 03.2: Prepare departure of fright train unit
 
 
-### System Functional Exchange
+### System functional exchange
 
 #### SFE-150
 
@@ -109,3 +109,77 @@ For all exchanges between **core** system functions (functions that use the cont
 1. Human perceptable state
     - Produced by function type: Indicate
     - Consumed by function type: Control or Observe (allocated to human actor)
+
+## Viewponts
+
+### General rules
+
+#### GRV-010 - Diagram naming convention
+Each diagram shall be named according to following convention:
+
+```
+[<Capella diagram type abbreviation>][<Viewpoint number>] <Subject of view> [<Viewpoint name>]
+```
+
+**Capella diagram type abbreviation:** abbreviation indicating the type of the diagram with the following possible values:
+
+- MCB - Mission Capabilities Blank
+- CC - Contextual Capability
+- SDFB - System Data Flow Blank
+- SFBD - System Function Breakdown
+- SAB - System Architecture Blank
+- CSA - Contextual System Actors
+- S.ES - System Exchange Scenario (Default in Capella [ES])
+- SDFB - System Functional Chain Description
+- S.CDI - Contextual Component Detailed Interfaces (Default in Capella [CDI])
+- S.STM - System State Machine (Default in Capella [MSM])
+
+**Viewpoint number:** number given to the viewpoint based on ARCH viewpoint number
+
+**Subject of view:** either a ```<model element>``` or ```<free text>```
+
+- ```<model element>```
+  - exact name of the model element
+  - is used if the viewpoint focuses on a single model element
+- ```<free text>```
+  - a useful title providing initial information about the contents of the diagram (e.g. set of model elements shown)
+  - is used if the viewpoint does not focus on a single model element or for other cases
+  - shall be written in sentence case - the first letter of the first word in a sentence is capitalised
+
+Guidance:
+
+if needed also further information like e.g. sequence diagram main success scenario, alternative scenario, etc. can be included
+
+**Viewpoint name:** name given to the viewpoint based on ARCH viewpoint name
+
+Examples:
+[SDFB][AMOD-056] SysC15: Respond autonomously to obstacle on or near the line [System functions and exchanges (single system capability)]
+
+
+#### GRV-020	
+Optional rule: A diagram has a visible note as a short text description consisting of the following three parts:
+
+- Status: initial draft, group reviewed, design reviewed
+- Version: version of the diagram, there is only a version after first design review
+- Reference: references to resources on which the diagram was created/build
+
+#### GRV-030	
+If a note is used on a diagram, it should include the name of the person responsible and the date of creation.
+
+Note: if after the design review there is still a need for the note, the name can be removed.
+
+### System Architecture (SAB)
+
+#### [AMOD-119 System context definition]
+
+##### 119-010
+All actors on the diagram are connected with the system via a component exchange.
+
+###### 119-020	
+
+The flow direction of each component ports is set as follows:
+
+- in: In case all functional exchanges flowing into a system function that is allocated to the system or actor, to which the component port belongs. This must correspond to component port of the inverted flow direction at the other end of the same component exchanges.
+- out: In case all functional exchanges flowing out of a system function that is allocated to the system or actor, to which the component port belongs. This must correspond to component port of the inverted flow direction at the other end of the same component exchanges.
+- inout: In case at least one functional exchange is flowing out of a system function and at least one functional exchange is flowing into the same system function and that system function is is allocated to the system or actor, to which the component port belongs. This must correspond to component port of the same flow flow direction at the other end of the same component exchanges.
+

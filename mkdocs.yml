@@ -8,6 +8,8 @@ nav:
   - Introduction: index.md
   - Modeling Rules:
     - System Analysis: modeling_rules/system_analysis.md
+  - Viewpoints:
+    - AMOD-119 System context definition: Viewpoints/AMOD-119 System context definition.md  
   - Demo: demo.md
 
 repo_url: https://github.com/DSD-DBS/capella-collab-manager-docs
