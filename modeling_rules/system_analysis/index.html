@@ -1,0 +1,1039 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>System Analysis - MBSE Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modeling-rules-for-system-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MBSE Handbook" class="md-header__button md-logo" aria-label="MBSE Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MBSE Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              System Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DSD-DBS/capella-collab-manager-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MBSE Handbook" class="md-nav__button md-logo" aria-label="MBSE Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MBSE Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DSD-DBS/capella-collab-manager-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Modeling Rules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modeling Rules" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modeling Rules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          System Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        System Analysis
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overall" class="md-nav__link">
+    Overall
+  </a>
+  
+    <nav class="md-nav" aria-label="Overall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sa-001" class="md-nav__link">
+    SA-001
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sa-002" class="md-nav__link">
+    SA-002
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sa-003" class="md-nav__link">
+    SA-003
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elements" class="md-nav__link">
+    Elements
+  </a>
+  
+    <nav class="md-nav" aria-label="Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-capability" class="md-nav__link">
+    System capability
+  </a>
+  
+    <nav class="md-nav" aria-label="System capability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sc-106-naming-convention" class="md-nav__link">
+    SC-106 - Naming convention
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-functional-exchange" class="md-nav__link">
+    System functional exchange
+  </a>
+  
+    <nav class="md-nav" aria-label="System functional exchange">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sfe-150" class="md-nav__link">
+    SFE-150
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewponts" class="md-nav__link">
+    Viewponts
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewponts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-rules" class="md-nav__link">
+    General rules
+  </a>
+  
+    <nav class="md-nav" aria-label="General rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grv-010-diagram-naming-convention" class="md-nav__link">
+    GRV-010 - Diagram naming convention
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grv-020" class="md-nav__link">
+    GRV-020
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grv-030" class="md-nav__link">
+    GRV-030
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-architecture-sab" class="md-nav__link">
+    System Architecture (SAB)
+  </a>
+  
+    <nav class="md-nav" aria-label="System Architecture (SAB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amod-119-system-context-definition" class="md-nav__link">
+    AMOD-119 System context definition
+  </a>
+  
+    <nav class="md-nav" aria-label="AMOD-119 System context definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#119-010" class="md-nav__link">
+    119-010
+  </a>
+  
+    <nav class="md-nav" aria-label="119-010">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#119-020" class="md-nav__link">
+    119-020
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Viewpoints
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Viewpoints" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Viewpoints
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Viewpoints/AMOD-119/" class="md-nav__link">
+        AMOD-119 System context definition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demo/" class="md-nav__link">
+        Demo
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overall" class="md-nav__link">
+    Overall
+  </a>
+  
+    <nav class="md-nav" aria-label="Overall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sa-001" class="md-nav__link">
+    SA-001
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sa-002" class="md-nav__link">
+    SA-002
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sa-003" class="md-nav__link">
+    SA-003
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elements" class="md-nav__link">
+    Elements
+  </a>
+  
+    <nav class="md-nav" aria-label="Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-capability" class="md-nav__link">
+    System capability
+  </a>
+  
+    <nav class="md-nav" aria-label="System capability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sc-106-naming-convention" class="md-nav__link">
+    SC-106 - Naming convention
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-functional-exchange" class="md-nav__link">
+    System functional exchange
+  </a>
+  
+    <nav class="md-nav" aria-label="System functional exchange">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sfe-150" class="md-nav__link">
+    SFE-150
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewponts" class="md-nav__link">
+    Viewponts
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewponts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-rules" class="md-nav__link">
+    General rules
+  </a>
+  
+    <nav class="md-nav" aria-label="General rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grv-010-diagram-naming-convention" class="md-nav__link">
+    GRV-010 - Diagram naming convention
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grv-020" class="md-nav__link">
+    GRV-020
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grv-030" class="md-nav__link">
+    GRV-030
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-architecture-sab" class="md-nav__link">
+    System Architecture (SAB)
+  </a>
+  
+    <nav class="md-nav" aria-label="System Architecture (SAB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amod-119-system-context-definition" class="md-nav__link">
+    AMOD-119 System context definition
+  </a>
+  
+    <nav class="md-nav" aria-label="AMOD-119 System context definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#119-010" class="md-nav__link">
+    119-010
+  </a>
+  
+    <nav class="md-nav" aria-label="119-010">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#119-020" class="md-nav__link">
+    119-020
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/DSD-DBS/capella-collab-manager-docs/edit/main/docs/modeling_rules/system_analysis.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="modeling-rules-for-system-analysis">Modeling rules for system analysis</h1>
+<h2 id="overall">Overall</h2>
+<h3 id="sa-001">SA-001</h3>
+<p>In order to ensure consistency within the project, British English is to be used at all times.</p>
+<p>Refer to the <a href="https://dictionary.cambridge.org/">Cambridge Dictionary</a> for further information.</p>
+<h3 id="sa-002">SA-002</h3>
+<p>Images and/or diagrams that are to be used in the descriptions of Capella model elements shall be created and maintained.</p>
+<h3 id="sa-003">SA-003</h3>
+<p>Description Links for model elements shall be used in all model element descriptions.</p>
+<p>E.g. if a certain description refers to a defined model element, the name of the model element being referred to shall be copied (as a Description Link) and pasted (as a Link) in the corresponding description field.</p>
+<p>Exception: model elements defined as abstract concepts or terms, which serve solely as a form of documenting information external to the project, shall be excluded from this rule.</p>
+<h2 id="elements">Elements</h2>
+<h3 id="system-capability">System capability</h3>
+<h4 id="sc-106-naming-convention">SC-106 - Naming convention</h4>
+<p>Sentence case - the first letter of the first word in a sentence is capitalised.</p>
+<p>The name of a system capability should begin with an active verb.</p>
+<p>The verb should be specific enough to identify what the actor wants from the system. Verbs such as "manage", "handle" or "process" are not specific enough and are forbidden.</p>
+<p>The usage of abbreviations should be well considered and should only be used in cases where the abbreviation is standardised.</p>
+<p>In addition, the system capability name gets a prefix:</p>
+<div class="highlight"><pre><span></span><code>&lt;Capability unique number&gt;.&lt;Number in case of generalisation link&gt;: &lt;System capability&#39;s name&gt;
+</code></pre></div>
+<p>Each capability has a number to be identified. This unique number is defined by creation of the capability (began by 01);
+If some capabilities have a generalisation link, we can add a specific number to report this.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>capabilities can be grouped by a mission in the model if needed</p>
+</div>
+<p>Examples:</p>
+<ul>
+<li>01: Set point for train unit movement</li>
+<li>02: Authorise train unit movement</li>
+<li>03.1: Prepare departure of passenger train unit</li>
+<li>03.2: Prepare departure of fright train unit</li>
+</ul>
+<h3 id="system-functional-exchange">System functional exchange</h3>
+<h4 id="sfe-150">SFE-150</h4>
+<p>For all exchanges between <strong>core</strong> system functions (functions that use the control pattern), the following exchange types are permitted; no other exchanges are permitted.</p>
+<ol>
+<li>
+<p><strong>Abstract required state</strong> (non-reflexive)(WHERE an abstract required state is used as a parameter to another function) </p>
+<ul>
+<li>Produced by function type: Control OR External input to system</li>
+<li>Consumed by function type: Control (different type) or Indicate.</li>
+</ul>
+<p>Example (classical route signalling):</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Exchange</th>
+<th>Sink</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>control set/unset state of route</td>
+<td>required state of point</td>
+<td>control left/right position of point</td>
+</tr>
+<tr>
+<td>control set/unset state of route</td>
+<td>required state of point</td>
+<td>indicate required state of point</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Abstract required state</strong> (reflexive) (WHERE one type of abstract state is used as a parameter to <strong>another instance of the same function that produced</strong> the original abstract state type)</p>
+<ul>
+<li>Produced by function type: Control state x (instance y)</li>
+<li>Consumed by function type: Control state x (instance z)</li>
+<li>For functional exchanges between two instances of the same function, the functional exchange should go through a duplicate function (Name of the duplicate function shall be Duplicated instance of function 'original function name').</li>
+</ul>
+<p><img alt="Example image" src="../images/example_123.png" /></p>
+<p>Example (classical light signalling):</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Exchange</th>
+<th>Sink</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>control aspect of light signal BER003 (Hauptsignal/Main signal)</td>
+<td>required aspect of signal BER001</td>
+<td>control aspect of light signal BER001 (Vorsignal/Distant signal)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Plant external required input state</p>
+<ul>
+<li>Produced by function type: Control</li>
+<li>Consumed by function type: Actuate or Indicate</li>
+</ul>
+</li>
+<li>Plant external actual input state<ul>
+<li>Produced by function type: Actuate</li>
+<li>Consumed by function type: Plant</li>
+</ul>
+</li>
+<li>Plant actual output state<ul>
+<li>Produced by function type: Plant</li>
+<li>Consumed by function type: Sense</li>
+</ul>
+</li>
+<li>Sensed output state<ul>
+<li>Produced by function type: Sense</li>
+<li>Consumed by function type: Observe</li>
+</ul>
+</li>
+<li>Estimated internal state (abstraction level equal to abstraction used by control)<ul>
+<li>Produced by function type: Observe</li>
+<li>Consumed by function type: Control</li>
+</ul>
+</li>
+<li>Estimated internal state (abstraction level less than abstraction used by control OR used by observe function for a different internal state)<ul>
+<li>Produced by function type: Observe</li>
+<li>Consumed by function type: Observe (different instance)</li>
+</ul>
+</li>
+<li>Estimated internal state (for indication to a human user)<ul>
+<li>Produced by function type: Observe</li>
+<li>Consumed by function type: Indicate</li>
+</ul>
+</li>
+<li>Human perceptable state<ul>
+<li>Produced by function type: Indicate</li>
+<li>Consumed by function type: Control or Observe (allocated to human actor)</li>
+</ul>
+</li>
+</ol>
+<h2 id="viewponts">Viewponts</h2>
+<h3 id="general-rules">General rules</h3>
+<h4 id="grv-010-diagram-naming-convention">GRV-010 - Diagram naming convention</h4>
+<p>Each diagram shall be named according to following convention:</p>
+<div class="highlight"><pre><span></span><code>[&lt;Capella diagram type abbreviation&gt;][&lt;Viewpoint number&gt;] &lt;Subject of view&gt; [&lt;Viewpoint name&gt;]
+</code></pre></div>
+<p><strong>Capella diagram type abbreviation:</strong> abbreviation indicating the type of the diagram with the following possible values:</p>
+<ul>
+<li>MCB - Mission Capabilities Blank</li>
+<li>CC - Contextual Capability</li>
+<li>SDFB - System Data Flow Blank</li>
+<li>SFBD - System Function Breakdown</li>
+<li>SAB - System Architecture Blank</li>
+<li>CSA - Contextual System Actors</li>
+<li>S.ES - System Exchange Scenario (Default in Capella [ES])</li>
+<li>SDFB - System Functional Chain Description</li>
+<li>S.CDI - Contextual Component Detailed Interfaces (Default in Capella [CDI])</li>
+<li>S.STM - System State Machine (Default in Capella [MSM])</li>
+</ul>
+<p><strong>Viewpoint number:</strong> number given to the viewpoint based on ARCH viewpoint number</p>
+<p><strong>Subject of view:</strong> either a <code>&lt;model element&gt;</code> or <code>&lt;free text&gt;</code></p>
+<ul>
+<li><code>&lt;model element&gt;</code></li>
+<li>exact name of the model element</li>
+<li>is used if the viewpoint focuses on a single model element</li>
+<li><code>&lt;free text&gt;</code></li>
+<li>a useful title providing initial information about the contents of the diagram (e.g. set of model elements shown)</li>
+<li>is used if the viewpoint does not focus on a single model element or for other cases</li>
+<li>shall be written in sentence case - the first letter of the first word in a sentence is capitalised</li>
+</ul>
+<p>Guidance:</p>
+<p>if needed also further information like e.g. sequence diagram main success scenario, alternative scenario, etc. can be included</p>
+<p><strong>Viewpoint name:</strong> name given to the viewpoint based on ARCH viewpoint name</p>
+<p>Examples:
+[SDFB][AMOD-056] SysC15: Respond autonomously to obstacle on or near the line [System functions and exchanges (single system capability)]</p>
+<h4 id="grv-020">GRV-020</h4>
+<p>Optional rule: A diagram has a visible note as a short text description consisting of the following three parts:</p>
+<ul>
+<li>Status: initial draft, group reviewed, design reviewed</li>
+<li>Version: version of the diagram, there is only a version after first design review</li>
+<li>Reference: references to resources on which the diagram was created/build</li>
+</ul>
+<h4 id="grv-030">GRV-030</h4>
+<p>If a note is used on a diagram, it should include the name of the person responsible and the date of creation.</p>
+<p>Note: if after the design review there is still a need for the note, the name can be removed.</p>
+<h3 id="system-architecture-sab">System Architecture (SAB)</h3>
+<h4 id="amod-119-system-context-definition"><a href="../Viewpoints/AMOD-119/">AMOD-119 System context definition</a></h4>
+<h5 id="119-010">119-010</h5>
+<p>All actors on the diagram are connected with the system via a component exchange.</p>
+<h6 id="119-020">119-020</h6>
+<p>The flow direction of each component ports is set as follows:</p>
+<ul>
+<li>in: In case all functional exchanges flowing into a system function that is allocated to the system or actor, to which the component port belongs. This must correspond to component port of the inverted flow direction at the other end of the same component exchanges.</li>
+<li>out: In case all functional exchanges flowing out of a system function that is allocated to the system or actor, to which the component port belongs. This must correspond to component port of the inverted flow direction at the other end of the same component exchanges.</li>
+<li>inout: In case at least one functional exchange is flowing out of a system function and at least one functional exchange is flowing into the same system function and that system function is is allocated to the system or actor, to which the component port belongs. This must correspond to component port of the same flow flow direction at the other end of the same component exchanges.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Viewpoints/AMOD-119/" class="md-footer__link md-footer__link--next" aria-label="Next: AMOD-119 System context definition" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              AMOD-119 System context definition
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 DB Netz AG
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>
