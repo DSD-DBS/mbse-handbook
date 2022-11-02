@@ -14,7 +14,7 @@ Mandatory viewpoint:
 
 ``` mermaid
 classDiagram
-direction TB 
+direction TB
 class SystemContextDefinition 
 <<viewpoint>> SystemContextDefinition
 class SystemOfInterest
@@ -22,8 +22,8 @@ class SystemOfInterest
 class Actor
 <<viewpointelement>> Actor
 
-SystemContextDefinition "1" --o "1" SystemOfInterest
-SystemContextDefinition "1" --o "1..*" Actor
+SystemContextDefinition "1" o-- "1" SystemOfInterest
+SystemContextDefinition "1" o-- "1..*" Actor
 Actor "1..*" -- "1" SystemOfInterest : Interacts with > 
 ```
 **Diagram modelling rules**
@@ -33,4 +33,4 @@ Actor "1..*" -- "1" SystemOfInterest : Interacts with >
 (Link)TODO
 
 **Viewpoint modelling rules**
-[Viewpoint Rules AMOD-119](../system_analysis.md)
+[Viewpoint Rules AMOD-119](../system_analysis.md#amod-119-system-context-definition)

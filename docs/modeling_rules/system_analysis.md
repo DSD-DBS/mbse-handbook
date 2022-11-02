@@ -170,7 +170,7 @@ Note: if after the design review there is still a need for the note, the name ca
 
 ### System Architecture (SAB)
 
-#### [AMOD-119 System context definition]
+#### [AMOD-119 System context definition](Viewpoints/AMOD-119.md)
 
 ##### 119-010
 All actors on the diagram are connected with the system via a component exchange.
