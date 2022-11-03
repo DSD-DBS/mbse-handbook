@@ -24,7 +24,7 @@ class Actor
 
 SystemContextDefinition "1" o-- "1" SystemOfInterest
 SystemContextDefinition "1" o-- "1..*" Actor
-Actor "1..*" -- "1" SystemOfInterest : Interacts with > 
+Actor "1..*" -- "1" SystemOfInterest : Interacts with >
 ```
 **Diagram modelling rules**
 (Link)TODO
