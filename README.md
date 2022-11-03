@@ -40,7 +40,7 @@ This project is compliant with the REUSE Specification Version 3.0.
 
 ***Copyright DB Netz AG***
 
-***Text and graphical contents licensed under [LICENSES/CC-BY-SA-3.0-DE License](https://github.com/DSD-DBS/mbse-handbook/blob/main/LICENSES/CC-BY-SA-3.0-DE.txt) (see full text here: https://creativecommons.org/licenses/by-sa/3.0/de/legalcode)***
+***Text and graphical contents licensed under CC-BY-SA-3.0-DE License (see full text here: https://creativecommons.org/licenses/by-sa/3.0/de/legalcode)***
 
 ***Code is licensed under Apache 2.0 (see full text in [LICENSES/Apache-2.0](https://github.com/DSD-DBS/mbse-handbook/blob/main/LICENSES/Apache-2.0.txt))***
 
