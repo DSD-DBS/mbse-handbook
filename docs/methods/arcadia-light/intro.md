@@ -16,7 +16,7 @@ This method builds on top of ARCADIA methodology but selects very specific conte
 For this tutorial, we will start this `System Analysis` and skip Operational Analysis. If you do have time to perform operational analysis upfront, it will give you a better understanding of ....
 
 1. **capture business need** - somebody wants to make things happen. We need to have a good understanding of what outcomes are expected.
-2. **identify system capabilities** -  based on the business objectives we should identify what capabilities the `System` will bring in, what stakeholders would receive value out of the system capability and what other stakeholders must or may be involved to create that value. We would perform that analysis only for one capability at a time and perform consolidation later. We may however consider doing this on a number of capabilities but only if those are closely linked and form the Minimum Viable Product scope together. In ARCADIA terms we may use mission to bundle such capability collection.
+2. **identify system capabilities** -  based on the business objectives we identify what capabilities the `System` will bring, what stakeholders would receive value out of the system, and what other stakeholders must or may be involved to create that value. We perform that analysis only for one capability at a time and consolidate later. We may however consider doing this on a number of capabilities but only if those are closely linked and form the Minimum Viable Product scope together. In ARCADIA terms we may use mission to bundle such capability collection.
    
    ![Business requirement in capability analysis context](sa-images/sa-cap1.jpg)
 
