@@ -20,7 +20,7 @@ For this tutorial, we will start this `System Analysis` and skip Operational Ana
    
    ![Business requirement in capability analysis context](sa-images/sa-cap1.jpg)
 
-3. **identify functions and responsibilities** - for a selected capability we should identify what the system and involved stakeholders should do together to create and deliver the value. There are many ways to go about it in the tool. A good way to discover the functions is to analyse a scenario of how the stakeholders will interact with the system. 
+3. **identify functions and responsibilities** - for a selected capability we identify _what_ the system and involved stakeholders should do together to create and deliver the value. There are many ways to go about it in the tool. A good way to discover the functions is to analyse a scenario of how the stakeholders will interact with the system. 
     Ideally this is done solution-agnostic. Ideally we stay solution-agnostic / unbiased and focus on the stakeholder and system needs. But good enough frequently beats ideal on the time axis.
 
     ![Example of how a capability realization can be captured in a scenario](sa-images/sa-cap1-scenario.jpg)
