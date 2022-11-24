@@ -101,6 +101,8 @@
           </ownedFunctions>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
               id="4216995e-7110-498a-a945-412cab655122" name="enable coffee making">
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="2566cd6d-b5dc-4f6f-9c1e-da008e200df9" name="FIP 1"/>
             <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
                 id="6bd92800-29ab-49fa-a505-67cb3dcecf7c" name="FOP 1"/>
           </ownedFunctions>
@@ -110,7 +112,7 @@
                 id="a3fe47e2-c58a-4101-833a-031b2b81a099" name="FIP 1"/>
           </ownedFunctions>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
-              id="918deb8a-8e9b-405f-b8a6-4fe3ddb74805" name="dispose process wastes">
+              id="918deb8a-8e9b-405f-b8a6-4fe3ddb74805" name="dispose process waste">
             <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                 id="354411f9-dc7c-46ba-a56a-a0c373e23a79" name="FIP 1"/>
           </ownedFunctions>
@@ -118,6 +120,11 @@
               id="664d645f-697b-4450-8250-13e6ef7434d8" name="handle noise and vibration">
             <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                 id="dd6a636c-a267-47af-a250-312f3e3f48df" name="FIP 1"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
+              id="1be7e619-a5ef-4b96-9dc1-f30100643683" name="request user action">
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="04a1319e-2425-4404-b392-f6f11a9a9da7" name="FOP 1"/>
           </ownedFunctions>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="fb72c087-044c-45c6-b228-23874ddf2b40" targetElement="#d90e3f89-2407-417a-b01f-2114b32ff329"
@@ -135,11 +142,14 @@
               id="d5bdfcba-7377-4e9b-8547-0e0f0ad0a1b3" name="coffee mug, beans and water"
               target="#a3fe47e2-c58a-4101-833a-031b2b81a099" source="#6bd92800-29ab-49fa-a505-67cb3dcecf7c"/>
           <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
-              id="19b86f36-e1f0-4af8-941b-db9fd3522b83" name="process wastes" target="#354411f9-dc7c-46ba-a56a-a0c373e23a79"
+              id="19b86f36-e1f0-4af8-941b-db9fd3522b83" name="process waste" target="#354411f9-dc7c-46ba-a56a-a0c373e23a79"
               source="#1dc12e9d-14f6-494f-9dfc-867635951e91"/>
           <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
               id="79d85fe7-45f0-49df-b482-8fa8adf20cd2" name="noise and vibration"
               target="#dd6a636c-a267-47af-a250-312f3e3f48df" source="#c87688f6-adc7-45e2-b254-8f22e85fec4b"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="0e8cb623-ed6a-445b-a272-95148e265a03" name="need supplies notification"
+              target="#2566cd6d-b5dc-4f6f-9c1e-da008e200df9" source="#04a1319e-2425-4404-b392-f6f11a9a9da7"/>
         </ownedSystemFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.ctx:CapabilityPkg"
@@ -162,6 +172,10 @@
                 kind="ASYNCHRONOUS_CALL" sendingEnd="#026a99cc-0e91-45a6-8f35-e3b87bbc6889"
                 receivingEnd="#87e426a9-ff1c-47db-9186-cd267409e600"/>
             <ownedMessages xsi:type="org.polarsys.capella.core.data.interaction:SequenceMessage"
+                id="43a32259-37ca-40de-85bf-0406bdd3fa22" name="need supplies notification"
+                kind="ASYNCHRONOUS_CALL" sendingEnd="#2deb499f-e50f-46b2-a9d2-e7cac334aba2"
+                receivingEnd="#32983808-1722-4c26-bb2e-effc670b7c9c"/>
+            <ownedMessages xsi:type="org.polarsys.capella.core.data.interaction:SequenceMessage"
                 id="208d63e0-2477-4b9a-8d68-4942580d0241" name="coffee mug, beans and water"
                 kind="ASYNCHRONOUS_CALL" sendingEnd="#1720452a-a855-4d46-9dec-c4facbfb0f8e"
                 receivingEnd="#7f312bd2-5058-4792-b19e-7336925f48f1"/>
@@ -176,7 +190,7 @@
                 id="cce4722f-e4e2-4bd1-b681-31f4267a2f3a" name="coffee" kind="ASYNCHRONOUS_CALL"
                 sendingEnd="#cf126231-bbcb-4771-a2c3-a70dde1c4fe0" receivingEnd="#5f5e2054-1ec6-4463-a5db-8f92de7c08c3"/>
             <ownedMessages xsi:type="org.polarsys.capella.core.data.interaction:SequenceMessage"
-                id="e62630f4-a804-448a-8ee0-d85620aff742" name="process wastes" kind="ASYNCHRONOUS_CALL"
+                id="e62630f4-a804-448a-8ee0-d85620aff742" name="process waste" kind="ASYNCHRONOUS_CALL"
                 sendingEnd="#69ed4170-056f-4eee-bbe8-b2836930ea17" receivingEnd="#f0506a75-4989-42b4-a193-2a75e3fc26fe"/>
             <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:MessageEnd"
                 id="026a99cc-0e91-45a6-8f35-e3b87bbc6889" name="Send Call Message Call"
@@ -187,6 +201,20 @@
             <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:ExecutionEnd"
                 id="443a75b2-dd5c-48ad-97fa-dabf5b2faf91" name="endExec" coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9"
                 event="#6e39b074-bcf1-43b3-b4dd-0a624a5f5a31"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:FragmentEnd"
+                id="5cc250ce-7851-42e9-b692-4d26f7909fa8" name="start" coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9 #58f4c710-d990-4f60-a9f7-83f67f724ed0 #06809b76-7a56-4bc7-aa07-24990bb97acc"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionOperand"
+                id="102de573-b03f-48bb-bbc6-7257b737c279" name="operand 1" coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9 #58f4c710-d990-4f60-a9f7-83f67f724ed0 #06809b76-7a56-4bc7-aa07-24990bb97acc"
+                guard="#2dafb227-e64d-4a0a-8244-282a0f6ff9fb">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="2dafb227-e64d-4a0a-8244-282a0f6ff9fb" name="">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="b1468fab-96eb-4a54-aa39-05b5c3db7967">
+                  <bodies>power-up check concluded that supplies level is inssufficient</bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+            </ownedInteractionFragments>
             <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
                 id="1f792d3b-d5b7-441c-9987-a01e37a6871b" coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9"
                 relatedAbstractState="#898de780-3e90-44a6-ab0a-0627636e88cd"/>
@@ -194,11 +222,26 @@
                 id="07572662-afbf-4971-b00a-10b138a8014f" coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9"
                 relatedAbstractState="#898de780-3e90-44a6-ab0a-0627636e88cd"/>
             <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
+                id="54d7f60d-d59e-432a-8dac-32bb024d88b5" name="request user action"
+                coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9" relatedAbstractFunction="#1be7e619-a5ef-4b96-9dc1-f30100643683"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
+                id="a1c96677-5a4f-4477-9ebd-d9e6b9635da2" name="request user action"
+                coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9" relatedAbstractFunction="#1be7e619-a5ef-4b96-9dc1-f30100643683"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:MessageEnd"
+                id="2deb499f-e50f-46b2-a9d2-e7cac334aba2" name="Send Call Message Call"
+                coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9" event="#c6408440-696b-4da6-a144-4050b59b1bc6"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:MessageEnd"
+                id="32983808-1722-4c26-bb2e-effc670b7c9c" name="Receive Call Message Call"
+                coveredInstanceRoles="#06809b76-7a56-4bc7-aa07-24990bb97acc" event="#53af5139-69e0-47fc-baa6-45809d2cdbfc"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
                 id="652f0630-2840-40b9-90c9-9f521e3ce348" name="enable coffee making"
                 coveredInstanceRoles="#06809b76-7a56-4bc7-aa07-24990bb97acc" relatedAbstractFunction="#4216995e-7110-498a-a945-412cab655122"/>
             <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
                 id="d0e20c9f-623c-4487-8c30-63d59857f104" name="enable coffee making"
                 coveredInstanceRoles="#06809b76-7a56-4bc7-aa07-24990bb97acc" relatedAbstractFunction="#4216995e-7110-498a-a945-412cab655122"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:ExecutionEnd"
+                id="d619699e-7a2e-47e8-ab37-6311f92cab7b" name="endExec" coveredInstanceRoles="#06809b76-7a56-4bc7-aa07-24990bb97acc"
+                event="#81a34811-95a0-4113-8615-9b2154f0e5ca"/>
             <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:MessageEnd"
                 id="1720452a-a855-4d46-9dec-c4facbfb0f8e" name="Send Call Message Call"
                 coveredInstanceRoles="#06809b76-7a56-4bc7-aa07-24990bb97acc" event="#acf6643c-263c-4d58-9f1f-3757326802fc"/>
@@ -218,11 +261,13 @@
                 id="10629d1d-e09f-4a8c-bd66-d26b668aadaf" coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9"
                 relatedAbstractState="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda"/>
             <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
-                id="f588fd81-50f1-4748-a347-a47f61576cb9" name="request coffee" coveredInstanceRoles="#06809b76-7a56-4bc7-aa07-24990bb97acc"
-                relatedAbstractFunction="#0ef51b31-7db7-4afa-b53c-6cc756ec41e1"/>
-            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
                 id="a54ec158-0086-4ea3-b00f-4555e8fbd1c2" coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9"
                 relatedAbstractState="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:FragmentEnd"
+                id="0f6ae238-bd72-47e6-9475-119b89d1b0a9" name="end" coveredInstanceRoles="#ca65024d-14db-4971-8481-dabddba101a9 #58f4c710-d990-4f60-a9f7-83f67f724ed0 #06809b76-7a56-4bc7-aa07-24990bb97acc"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
+                id="f588fd81-50f1-4748-a347-a47f61576cb9" name="request coffee" coveredInstanceRoles="#06809b76-7a56-4bc7-aa07-24990bb97acc"
+                relatedAbstractFunction="#0ef51b31-7db7-4afa-b53c-6cc756ec41e1"/>
             <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
                 id="f0a98409-c16a-4ff9-b28c-cd605c53c254" name="request coffee" coveredInstanceRoles="#06809b76-7a56-4bc7-aa07-24990bb97acc"
                 relatedAbstractFunction="#0ef51b31-7db7-4afa-b53c-6cc756ec41e1"/>
@@ -349,6 +394,16 @@
             <ownedTimeLapses xsi:type="org.polarsys.capella.core.data.interaction:StateFragment"
                 id="4971b8f9-ca98-42a6-801b-4d7debfb40c4" start="#4edc551b-9747-44ae-bf04-31a9c2d8a6dc"
                 finish="#5db98b59-5f46-4672-8a58-47cda181411e" relatedAbstractState="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda"/>
+            <ownedTimeLapses xsi:type="org.polarsys.capella.core.data.interaction:CombinedFragment"
+                id="f684e374-a446-44e2-9c00-963af9ece50b" name="combined fragment"
+                start="#5cc250ce-7851-42e9-b692-4d26f7909fa8" finish="#0f6ae238-bd72-47e6-9475-119b89d1b0a9"
+                operator="OPT" referencedOperands="#102de573-b03f-48bb-bbc6-7257b737c279"/>
+            <ownedTimeLapses xsi:type="org.polarsys.capella.core.data.interaction:Execution"
+                id="11e3f572-6e87-4b25-9fb3-e3f22ebea876" start="#32983808-1722-4c26-bb2e-effc670b7c9c"
+                finish="#d619699e-7a2e-47e8-ab37-6311f92cab7b"/>
+            <ownedTimeLapses xsi:type="org.polarsys.capella.core.data.interaction:StateFragment"
+                id="3bdc3443-9995-469d-a4ef-663bbea1fb16" start="#54d7f60d-d59e-432a-8dac-32bb024d88b5"
+                finish="#a1c96677-5a4f-4477-9ebd-d9e6b9635da2" relatedAbstractFunction="#1be7e619-a5ef-4b96-9dc1-f30100643683"/>
             <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:EventSentOperation"
                 id="3a29802e-09d9-40d2-a134-8096f3502042" operation="#51c0ac45-2206-4688-b4c5-7d3003c6c705"/>
             <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:EventReceiptOperation"
@@ -385,6 +440,28 @@
                 id="4ea70449-c28a-4d5a-83cd-a5793d59a29e" operation="#79d85fe7-45f0-49df-b482-8fa8adf20cd2"/>
             <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:ExecutionEvent"
                 id="9ee2cc00-a28b-42d8-a1cb-c24ac8b248fe"/>
+            <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:EventSentOperation"
+                id="c6408440-696b-4da6-a144-4050b59b1bc6" operation="#0e8cb623-ed6a-445b-a272-95148e265a03"/>
+            <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:EventReceiptOperation"
+                id="53af5139-69e0-47fc-baa6-45809d2cdbfc" operation="#0e8cb623-ed6a-445b-a272-95148e265a03"/>
+            <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:ExecutionEvent"
+                id="81a34811-95a0-4113-8615-9b2154f0e5ca"/>
+            <ownedConstraintDurations xsi:type="org.polarsys.capella.core.data.interaction:ConstraintDuration"
+                id="7ec58616-3461-438f-be6e-091ab5763d32" duration="&lt; 50s" start="#ba1458f4-f5f3-48a8-a7c3-835a82a940c5"
+                finish="#a94c95a4-6498-4de4-bfa1-23cc2b8c0584"/>
+            <ownedConstraintDurations xsi:type="org.polarsys.capella.core.data.interaction:ConstraintDuration"
+                id="1ceffd22-f540-4029-a903-c8208de27270" duration="&lt; 10s" start="#87e426a9-ff1c-47db-9186-cd267409e600"
+                finish="#443a75b2-dd5c-48ad-97fa-dabf5b2faf91">
+              <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                  id="27a5ac60-90c8-42bd-95a1-abc2723ad5ad" name="power-up procedure shouldn't keep end-user waiting for too long"
+                  constrainedElements="#1ceffd22-f540-4029-a903-c8208de27270">
+                <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                    id="32a991fe-c992-4e64-8bce-b12e838f863f">
+                  <bodies></bodies>
+                  <languages>capella:linkedText</languages>
+                </ownedSpecification>
+              </ownedConstraints>
+            </ownedConstraintDurations>
           </ownedScenarios>
           <ownedAbstractFunctionAbstractCapabilityInvolvements xsi:type="org.polarsys.capella.core.data.interaction:AbstractFunctionAbstractCapabilityInvolvement"
               id="8a854efd-2ec0-47e1-bcd8-ad085cfc9593" involved="#0ef51b31-7db7-4afa-b53c-6cc756ec41e1"/>
@@ -541,82 +618,106 @@
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
               id="66784310-ec0b-44e1-9d72-65566ac026dc" targetElement="#f6ea4c63-5b95-4a91-8ae0-d402969fe82c"
               sourceElement="#5357012d-0479-49d3-a6e7-26c0da89fed7"/>
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="52bb0acf-2a59-4b18-b662-c57c4306b416" targetElement="#1be7e619-a5ef-4b96-9dc1-f30100643683"
+              sourceElement="#5357012d-0479-49d3-a6e7-26c0da89fed7"/>
           <ownedStateMachines xsi:type="org.polarsys.capella.core.data.capellacommon:StateMachine"
               id="8ec7412b-7d95-47ca-b220-ee495fa0209b" name="System State Machine">
             <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
-                id="563b2a54-307b-4b8d-9e28-fdc2f1055928" name="Default Region" involvedStates="#898de780-3e90-44a6-ab0a-0627636e88cd #15e28744-1a3b-41ce-a2ee-28fb33ed3bda #90878da6-d7c4-4726-ba8d-c83bb866719e #1b9057b0-1501-4f60-8132-60914e35063e">
+                id="563b2a54-307b-4b8d-9e28-fdc2f1055928" name="Default Region" involvedStates="#9f69487e-afa9-4aa7-bc14-37a0bb7fcd75 #0000bb4f-a06a-4e09-9f0b-df05b858d1d7">
+              <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:InitialPseudoState"
+                  id="9f69487e-afa9-4aa7-bc14-37a0bb7fcd75" name="de-powered"/>
               <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
-                  id="898de780-3e90-44a6-ab0a-0627636e88cd" name="Supplies required">
+                  id="0000bb4f-a06a-4e09-9f0b-df05b858d1d7" name="Powered" referencedStates="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda #1b9057b0-1501-4f60-8132-60914e35063e #90878da6-d7c4-4726-ba8d-c83bb866719e #898de780-3e90-44a6-ab0a-0627636e88cd">
                 <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
-                    id="b8d65bfb-e753-45f4-9e7d-0bd0a4640b52" name="region"/>
+                    id="2c5f3421-4565-4dd6-8b5e-8af78a4d5ef1" name="region" involvedStates="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda #1b9057b0-1501-4f60-8132-60914e35063e #90878da6-d7c4-4726-ba8d-c83bb866719e #898de780-3e90-44a6-ab0a-0627636e88cd">
+                  <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
+                      id="15e28744-1a3b-41ce-a2ee-28fb33ed3bda" name="Ready for request">
+                    <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+                        id="b5a5bdb4-7b2e-4c58-bbbd-2e709930c168" name="region"/>
+                  </ownedStates>
+                  <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
+                      id="1b9057b0-1501-4f60-8132-60914e35063e" name="Waste disposal required">
+                    <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+                        id="913282c2-9d86-4e12-acec-0a6d638eb3c0" name="region"/>
+                  </ownedStates>
+                  <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
+                      id="90878da6-d7c4-4726-ba8d-c83bb866719e" name="Busy">
+                    <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+                        id="0c61cb1b-43f7-418b-8307-ef17d68d8ae1" name="region"/>
+                  </ownedStates>
+                  <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
+                      id="898de780-3e90-44a6-ab0a-0627636e88cd" name="Supplies required">
+                    <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+                        id="b8d65bfb-e753-45f4-9e7d-0bd0a4640b52" name="region"/>
+                  </ownedStates>
+                  <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                      id="6be8a2c9-cb2c-4ec0-95e4-71383e8f8486" triggerDescription=""
+                      source="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda" target="#90878da6-d7c4-4726-ba8d-c83bb866719e"
+                      triggers="#51c0ac45-2206-4688-b4c5-7d3003c6c705"/>
+                  <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                      id="ee99b904-7288-4f3d-92a7-82b60a59f1a0" triggerDescription=""
+                      guard="#9b8efa97-ff8a-4cea-8bdb-8960044bb895" source="#1b9057b0-1501-4f60-8132-60914e35063e"
+                      target="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda">
+                    <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                        id="9b8efa97-ff8a-4cea-8bdb-8960044bb895" name="">
+                      <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                          id="c9a28bc8-453b-4833-9863-26ee31d46b0c">
+                        <bodies>residuals container has enough space for at least one run</bodies>
+                        <languages>capella:linkedText</languages>
+                      </ownedSpecification>
+                    </ownedConstraints>
+                  </ownedTransitions>
+                  <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                      id="1213942a-8ecd-49d8-ae6a-20035fec2b07" triggerDescription=""
+                      guard="#eb9c3c0e-f7ee-466f-9421-af82e7934d36" source="#90878da6-d7c4-4726-ba8d-c83bb866719e"
+                      target="#898de780-3e90-44a6-ab0a-0627636e88cd">
+                    <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                        id="eb9c3c0e-f7ee-466f-9421-af82e7934d36" name="">
+                      <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                          id="e28eab00-a594-4dc3-ae05-12767abf89cc">
+                        <bodies>insufficient supplies</bodies>
+                        <languages>capella:linkedText</languages>
+                      </ownedSpecification>
+                    </ownedConstraints>
+                  </ownedTransitions>
+                  <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                      id="575a617f-0e16-4646-9179-10241aad8732" triggerDescription=""
+                      guard="#9c4190e5-94b2-4499-9bed-37203a8a925f" source="#90878da6-d7c4-4726-ba8d-c83bb866719e"
+                      target="#1b9057b0-1501-4f60-8132-60914e35063e">
+                    <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                        id="9c4190e5-94b2-4499-9bed-37203a8a925f" name="">
+                      <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                          id="89bb5fa1-347c-4bb8-92de-203a94f764a4">
+                        <bodies>residuals container capacity limit reached</bodies>
+                        <languages>capella:linkedText</languages>
+                      </ownedSpecification>
+                    </ownedConstraints>
+                  </ownedTransitions>
+                  <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                      id="9e9aeddd-b436-4d91-b3ec-9fdc7538a1d4" triggerDescription=""
+                      guard="#4ac843f8-7fc8-41b6-b647-8ef3816ff1ba" source="#898de780-3e90-44a6-ab0a-0627636e88cd"
+                      target="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda">
+                    <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                        id="4ac843f8-7fc8-41b6-b647-8ef3816ff1ba" name="">
+                      <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                          id="fd7a4ad5-e3d5-4909-8944-c8d213b34369">
+                        <bodies>supplies available</bodies>
+                        <languages>capella:linkedText</languages>
+                      </ownedSpecification>
+                    </ownedConstraints>
+                  </ownedTransitions>
+                </ownedRegions>
               </ownedStates>
-              <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
-                  id="15e28744-1a3b-41ce-a2ee-28fb33ed3bda" name="Ready for request">
-                <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
-                    id="b5a5bdb4-7b2e-4c58-bbbd-2e709930c168" name="region"/>
-              </ownedStates>
-              <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
-                  id="90878da6-d7c4-4726-ba8d-c83bb866719e" name="Busy">
-                <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
-                    id="0c61cb1b-43f7-418b-8307-ef17d68d8ae1" name="region"/>
-              </ownedStates>
-              <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
-                  id="1b9057b0-1501-4f60-8132-60914e35063e" name="Waste disposal required">
-                <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
-                    id="913282c2-9d86-4e12-acec-0a6d638eb3c0" name="region"/>
-              </ownedStates>
               <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
-                  id="9e9aeddd-b436-4d91-b3ec-9fdc7538a1d4" triggerDescription=""
-                  guard="#4ac843f8-7fc8-41b6-b647-8ef3816ff1ba" source="#898de780-3e90-44a6-ab0a-0627636e88cd"
-                  target="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda">
+                  id="79fbb70b-fe91-418b-bb4f-135c7e2b1994" triggerDescription=""
+                  guard="#ba5dc4a8-429c-4751-be3a-a9dd566ea19e" source="#9f69487e-afa9-4aa7-bc14-37a0bb7fcd75"
+                  target="#0000bb4f-a06a-4e09-9f0b-df05b858d1d7">
                 <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
-                    id="4ac843f8-7fc8-41b6-b647-8ef3816ff1ba" name="">
+                    id="ba5dc4a8-429c-4751-be3a-a9dd566ea19e" name="">
                   <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
-                      id="fd7a4ad5-e3d5-4909-8944-c8d213b34369">
-                    <bodies>supplies available</bodies>
-                    <languages>capella:linkedText</languages>
-                  </ownedSpecification>
-                </ownedConstraints>
-              </ownedTransitions>
-              <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
-                  id="6be8a2c9-cb2c-4ec0-95e4-71383e8f8486" triggerDescription=""
-                  source="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda" target="#90878da6-d7c4-4726-ba8d-c83bb866719e"
-                  triggers="#51c0ac45-2206-4688-b4c5-7d3003c6c705"/>
-              <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
-                  id="1213942a-8ecd-49d8-ae6a-20035fec2b07" triggerDescription=""
-                  guard="#eb9c3c0e-f7ee-466f-9421-af82e7934d36" source="#90878da6-d7c4-4726-ba8d-c83bb866719e"
-                  target="#898de780-3e90-44a6-ab0a-0627636e88cd">
-                <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
-                    id="eb9c3c0e-f7ee-466f-9421-af82e7934d36" name="">
-                  <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
-                      id="e28eab00-a594-4dc3-ae05-12767abf89cc">
-                    <bodies>insufficient supplies</bodies>
-                    <languages>capella:linkedText</languages>
-                  </ownedSpecification>
-                </ownedConstraints>
-              </ownedTransitions>
-              <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
-                  id="575a617f-0e16-4646-9179-10241aad8732" triggerDescription=""
-                  guard="#9c4190e5-94b2-4499-9bed-37203a8a925f" source="#90878da6-d7c4-4726-ba8d-c83bb866719e"
-                  target="#1b9057b0-1501-4f60-8132-60914e35063e">
-                <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
-                    id="9c4190e5-94b2-4499-9bed-37203a8a925f" name="">
-                  <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
-                      id="89bb5fa1-347c-4bb8-92de-203a94f764a4">
-                    <bodies>residuals container capacity limit reached</bodies>
-                    <languages>capella:linkedText</languages>
-                  </ownedSpecification>
-                </ownedConstraints>
-              </ownedTransitions>
-              <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
-                  id="ee99b904-7288-4f3d-92a7-82b60a59f1a0" triggerDescription=""
-                  guard="#9b8efa97-ff8a-4cea-8bdb-8960044bb895" source="#1b9057b0-1501-4f60-8132-60914e35063e"
-                  target="#15e28744-1a3b-41ce-a2ee-28fb33ed3bda">
-                <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
-                    id="9b8efa97-ff8a-4cea-8bdb-8960044bb895" name="">
-                  <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
-                      id="c9a28bc8-453b-4833-9863-26ee31d46b0c">
-                    <bodies>residuals container has enough space for at least one run</bodies>
+                      id="11ded834-d3b1-4b2e-9b63-a25b43b5758b">
+                    <bodies>&lt;a href=&quot;b63e2ef5-5c2b-4d5b-8b6c-69e320953bf6&quot;/> is given via &lt;a href=&quot;2efe3b77-5de0-40cc-9c42-583a99df0e73&quot;/> interface</bodies>
                     <languages>capella:linkedText</languages>
                   </ownedSpecification>
                 </ownedConstraints>

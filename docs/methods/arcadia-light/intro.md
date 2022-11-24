@@ -38,6 +38,16 @@ For this tutorial, we will start this `System Analysis` and skip Operational Ana
 5. **define system interfaces** - in this step we would bundle the functional exchanges / interactions between the system and actors into interfaces / component exchanges.
    
    ![Definition of System interfaces](sa-images/sa-cap1-sab.jpg)
+
+   At this point we can already generate some first requirements for how the system shall behave:
+
+   ```
+   While de-powered, given electrical power via I_EnvSys the system shall achieve powered state within 1 second.
+
+   When powered the system shall perform power-up check.
+   
+   After power-up check, if the waste container is not full, the system doesn't require cleaning and there is minimum supplies available the system shall achieve ready state
+   ```
    
 6. **consolidate outcomes** - the idea is to perform analysis of "one capability at a time" - and that analysis may happen in a sequence or in parallel. Either way, at certain point the `System` will contain functions and interface stakeholders (`Actors`) that are related to other capabilities that were either analysed before or brought in by other teams / team members. We will align those in this process step - remove duplications, consolidate definitions and interfaces.
 7. **release system analysis results** - Systems Engineering is a team sport. Regardless of domain, if you are applying MBSE to a problem / project - there must be enough complexity to involve multiple disciplines. And not all disciplines involved should understand what MBSE is about, but they should understand what the `System`under consideration is about and agree to the definition and problem understanding that comes out of the analysis. A way to achieve such agreement / "buy-in" is to let all the project stakeholders to review / comment on the outcome of system analysis activity. And to avoid huge surprises such review should be conducted frequently. To keep the pace we would also propose a pragmatic approach to review - the SE team publish consolidated "release-candidate" of system definition, stakeholders review it and raise comments. The comments get addressed on the consolidated version. When the team is happy with the state of comments (valid comments are implemented or planned for next releases, invalid comments are dismissed and justification accepted) - the team may release the system definition and baseline the model / derived documents.
