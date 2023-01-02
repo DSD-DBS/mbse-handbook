@@ -7,6 +7,7 @@ theme:
 nav:
   - Introduction: index.md
   - Modeling Rules:
+    - Operational Analysis: modeling_rules/operational_analysis.md
     - System Analysis: modeling_rules/system_analysis.md
   - Viewpoints:
     - AMOD-119 System context definition: modeling_rules/Viewpoints/AMOD-119.md
