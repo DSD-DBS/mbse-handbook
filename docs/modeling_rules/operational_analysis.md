@@ -28,13 +28,13 @@ ambiguity by spelling out the abbreviation.
 ### Structure in operational analysis
 
 Guidance:
-Generally speaking, Operational Entities should be used for organisations, and Operational Actors should be used for individual job titles or roles. If you are not sure whether a role belongs to an individual or an organisation, use an Operational Entity but make a note that it might need to be converted to an Operational Actor once we have checked.
+Generally speaking, operational entities should be used for organisations, and operational actors should be used for individual job titles or roles. If you are not sure whether a role belongs to an individual or an organisation, use an operational entity but make a note that it might need to be converted to an operational actor once we have checked.
 
 #### OSE-010 - Use operational entity naming rules
 
 - The name is written in Title Case - the first letter of each word is capitalised, words separated by space.
 - The name represents an organisational unit and is consistent with harmonised definitions from collaboration projects or with international standards where applicable.
-- Where an operational entity is a type of organisation, the name is generic enough to indicate the type and not to point to individual examples of that organisation (example: "Railway Undertaking (tick)", "DB Regio (error)")
+- Where an operational entity is a type of organisation, the name is generic enough to indicate the type and not to point to individual examples of that organisation (example: "Railway Undertaking (tick)", "XYZ Regio (error)")
 - Where an operational entity represents one specific organisation, the name is specific to that organisation and expressed first in English and expressed in German if the original name is German (example: "Federal police (Bundespolizei) (tick)")
 
 #### OSE-010 - Use operational actor naming rules
@@ -43,13 +43,14 @@ Generally speaking, Operational Entities should be used for organisations, and O
 - The name is generic and does not refer to any specific business concern or individual person, although it might describe a role or job type to which an individual belongs.
 - Operational actors are indivisible. They are at the level where an individual real person, or an individual system, could realise them. If there is any chance that an operational actor could be subdivided into parts, it should be modelled as an operational entity instead.
 
-#### OSE-020 - Use operational entitiy and operational actor description rules
+#### OSE-020 - Define operational entitiy and operational actor description rules
 
 - The description focuses on the features that define it, not on its responsibilities or activities.
 - The description is consistent with harmonised definitions from collaboration projects or with international standards where applicable.
 
 #### OSE-040 - Avoid generalisation for operational entities or actors
-Generalisation between operational actors is not permitted.
+- Generalisation between operational entities is not permitted.
+- Generalisation between operational actors is not permitted.
 
 
 ### Operational capability
@@ -61,12 +62,12 @@ Detailed guidance and explanations can be found in [ARCH.M.040 Method for defini
 
 #### OCX-010 - Use operational capability naming rules
 
-- The name is writen in Sentence case - the first letter of the first word in a sentence is capitalised.
+- The name is written in Sentence case - the first letter of the first word in a sentence is capitalised.
 - The name of a operational cpability begin with an active verb.
 - Avoid verbs such as "manage", "handle" or "process" as they are not specific enough.
     Reason: The verb should be specific enough to identify a particular effect on one or more entities/actors in the environment. 
 
-#### OCX-020 - Use operational capability description rules
+#### OCX-020 - Define operational capability description
 - The description includes a brief text description that summarises the capability. It should be short and abstract, because the true description of the operational capability will be its operational entity scenario.
 
 #### OCX-030 - Define pre- and post-condition
@@ -78,6 +79,18 @@ Guidance:
 - exchange items can be evaluated as well
 - post-condition describes an observable effect on at least one entity or actor in the environment.
 
+### Activity
+Guidance and method can be found in tbd.
+
+#### OAV-010 - Use activity naming rules
+- The name is written in Sentence case - the first letter of the first word in a sentence is capitalised.
+- The name have the form verb-noun.
+
+#### OAV-020 - Define activity description
+- All operational activities have a short text description of the transformation performed by this activity on its inputs to produce the outputs.
+
+#### OAV-030 - Define the rith scope
+- Operational activities are defined with a scope that is what an operational entity or actor is responsible for.
 
 ### Interaction
 
@@ -89,9 +102,25 @@ Guidance:
 - Each interaction has a unique identifier in the format of e.g. O-INT12345. 
 Note: The definition of unique identifiers will be done automatically by Capella.
 
-#### OIN-010 - Assocate exchange item to interaction
+#### OIN-010 - Use exchange items to descripe the data exchange of an interaction
 - Each interaction has at least one exchange item associated to it. These exchange items define the interaction.
     Exception: If no additional content information is added by the data model e.g. level of detail in the operational level, it is ok to not associate any exchange item and give the interaction just a short description.
+
+### Operational process
+
+tbd
+
+### Entity Scenario
+
+tbd
+
+### States
+
+tbd
+
+### Rationales
+
+tbd
 
 ## Viewponts
 
@@ -138,3 +167,4 @@ Examples:
 [COC][AMOD-137] Perform passenger exchange [Single operational capability context]
 [OCB][AMOD-021] Tactical railway operations (regular situations) [Operational capabilities definition]
 
+tbd
