@@ -65,7 +65,7 @@ Detailed guidance and explanations can be found in [ARCH.M.040 Method for defini
 - The name is written in Sentence case - the first letter of the first word in a sentence is capitalised.
 - The name of a operational cpability begin with an active verb.
 - Avoid verbs such as "manage", "handle" or "process" as they are not specific enough.
-    Reason: The verb should be specific enough to identify a particular effect on one or more entities/actors in the environment. 
+    Rationale: The verb should be specific enough to identify a particular effect on one or more entities/actors in the environment. 
 
 #### OCX-020 - Define operational capability description
 - The description includes a brief text description that summarises the capability. It should be short and abstract, because the true description of the operational capability will be its operational entity scenario.
