@@ -10,8 +10,8 @@ Refer to the [Cambridge Dictionary](https://dictionary.cambridge.org/) for furth
 - Images and/or diagrams that are to be used in the descriptions of Capella model elements shall be created and maintained in a centrally accessible platform.
 
 ### OEN-003 - Use auto link in text
-- Description Links for model elements shall be used in all model element descriptions. 
-E.g. if a certain description refers to a defined model element, the name of the model element being referred to shall be copied (as a Description Link) and pasted (as a Link) in the corresponding description field.
+- Description Links for model elements shall be used in all model element descriptions. If a model element description refers to (another) model element, the name of this model element shall be referret to in form of some Capella link.
+
 
 ### OEN-004 - Avoid abbreviations
 The usage of abbreviations should be well considered and should only be used in cases where the abbreviation is standardised.
@@ -95,12 +95,10 @@ Guidance and method can be found in tbd.
 ### Interaction
 
 #### OIN-010 - Use interaction naming rules
-- Sentence case - the first letter of the first word in a sentence is capitalised.
+- The name is written in Sentence case - the first letter of the first word in a sentence is capitalised.
+- The name begin with a verb in 
 - The name of the interaction is not the definition of the interaction (for the definition refer to OIN-010) and will be filtered in diagrams. The name may be freely chosen and should give guidance to the modellers about what is expressed by it.
-
-#### OIN-040 - Define identification of interaction
-- Each interaction has a unique identifier in the format of e.g. O-INT12345. 
-Note: The definition of unique identifiers will be done automatically by Capella.
+- The name of the interaction starts with a participle (verb).
 
 #### OIN-010 - Use exchange items to descripe the data exchange of an interaction
 - Each interaction has at least one exchange item associated to it. These exchange items define the interaction.
@@ -108,19 +106,46 @@ Note: The definition of unique identifiers will be done automatically by Capella
 
 ### Operational process
 
-tbd
+#### OPR-020 - Use operational process naming rules
+- The name is written in the fowlling pattern, if the process is defined under a capability:
+  ```
+  <operational capability name> (<Sentence case: additional information that descripes the purpose>)
+  ```
 
-### Entity Scenario
+### operational scenario
+#### OES-180 - Use operational scenario naming rules
+- The name is written in the fowlling pattern, if the scenario is defined under a capability:
+```
+<operational capability name> (<Sentence case: additional information that descripes the purpose>)
+```
 
-tbd
+#### OES-190 Define pre- and post-condition
 
-### States
+Note: An Exchange Scenario mays represent either a more specific and detailed course of the main success scenario OR a deviation from the main success scenario (e.g. due to incidents). Therefore the pre- and postconditions of the Capability may apply to the Exchange Scenario or not.
 
-tbd
+If the pre- and post-conditions of the owning capability fully apply to the Exchange Scenario:
 
-### Rationales
+- Pre- and postconditions of owning capability will be selected for Exchange Scenario
+- Additional pre- and postconditions represent a refinement or more concrete conditions that apply to this specific scenario. 
 
-tbd
+If the pre- and postconditions of the owning capability do not (fully) apply to the Exchange Scenario:
+
+- Pre- and postconditions of the Exchange Scenario represent which pre- and postconditions of the owning capability are NOT fulfilled
+- Additional pre- and postcondition provide specific context for this scenario
+
+### State and Transition
+
+#### OST-010 - Use state naming rules
+- State names contain either adjectives, referring to a quality of the owning entity/actor or verbs in the present participle form (-ing) or verbatim copies of states defined externally to Digital Railway Operation (that is, when reusing state definitions from elsewhere, they should be reproduced precisely and not changed).
+- The state name is written in Sentence case - the first letter of the first word in a sentence is capitalised, expect words like commonly known abbreviations or standardised terms which have own (externally-defined).
+
+#### OST-040	- Use only states
+- Only states are used in the model. Modes are not used.
+  Rationale: The behaviour of both elements in the model is identical and the difference in definition, arising from ARCADIA methodology, is somewhat philosophical. Methodology circle recommends standardising on using only states throughout.
+
+### Decision rationales
+
+tbd 
 
 ## Viewponts
 
