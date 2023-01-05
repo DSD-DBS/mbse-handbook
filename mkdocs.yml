@@ -17,7 +17,7 @@ repo_url: https://github.com/DSD-DBS/capella-collab-manager-docs
 edit_uri: edit/main/docs
 
 markdown_extensions:
-- attr_list
+  - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
